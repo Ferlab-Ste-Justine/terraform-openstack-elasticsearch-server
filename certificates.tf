@@ -15,7 +15,7 @@ resource "tls_cert_request" "request" {
 
   ip_addresses = concat(
     ["127.0.0.1"],
-    var.network_port.all_fixed_ips.0
+    [var.network_port.all_fixed_ips.0]
   )
   dns_names = [
     var.name,
