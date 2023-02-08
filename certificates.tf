@@ -17,10 +17,10 @@ resource "tls_cert_request" "request" {
     ["127.0.0.1"],
     [var.network_port.all_fixed_ips.0]
   )
-  dns_names = [
+  dns_names = concat([
     var.name,
     var.is_master ? "masters.${var.domain}" : "workers.${var.domain}"
-  ]
+  ], var.server_certificate.additional_domains)
 }
 
 resource "tls_locally_signed_cert" "certificate" {

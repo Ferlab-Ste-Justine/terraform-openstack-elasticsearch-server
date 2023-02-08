@@ -82,11 +82,13 @@ variable "server_certificate" {
     organization = string
     validity_period = number
     early_renewal_period = number
+    additional_domains = list(string)
   })
   default = {
     organization = "Ferlab"
     validity_period = 100*365*24
     early_renewal_period = 365*24
+    additional_domains = []
   }
 }
 
